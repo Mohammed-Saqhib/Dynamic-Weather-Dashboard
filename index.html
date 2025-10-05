@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoWeather - Revolutionary Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-sidebar">
+        <div class="nav-logo">
+            <div class="logo-icon">⚡</div>
+            <span class="logo-text">NeoWeather</span>
+        </div>
+        <div class="nav-items">
+            <div class="nav-item active" data-section="dashboard">
+                <span class="nav-icon">🌡️</span>
+                <span>Dashboard</span>
+            </div>
+            <div class="nav-item" data-section="ai-chat">
+                <span class="nav-icon">🤖</span>
+                <span>AI Assistant</span>
+            </div>
+            <div class="nav-item" data-section="globe">
+                <span class="nav-icon">🌍</span>
+                <span>3D Globe</span>
+            </div>
+            <div class="nav-item" data-section="predictions">
+                <span class="nav-icon">🎯</span>
+                <span>Predictions</span>
+            </div>
+            <div class="nav-item" data-section="community">
+                <span class="nav-icon">👥</span>
+                <span>Community</span>
+            </div>
+            <div class="nav-item" data-section="health">
+                <span class="nav-icon">❤️</span>
+                <span>Health</span>
+            </div>
+            <div class="nav-item" data-section="ar-view">
+                <span class="nav-icon">📱</span>
+                <span>AR View</span>
+            </div>
+            <div class="nav-item" data-section="voice">
+                <span class="nav-icon">🎤</span>
+                <span>Voice Control</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="hero-weather">
+                <div class="weather-card main-weather">
+                    <div class="weather-header">
+                        <div class="location-info">
+                            <h1 class="location-name">New York City</h1>
+                            <p class="location-coords">40.7128° N, 74.0060° W</p>
+                        </div>
+                        <div class="weather-time">
+                            <div class="current-time" id="current-time">12:00 PM</div>
+                            <div class="current-date" id="current-date">Saturday, Oct 4</div>
+                        </div>
+                    </div>
+
+                    <div class="location-selector">
+                        <div class="selector-inputs">
+                            <input type="text" id="city-input" class="selector-field" placeholder="City (e.g., New York)" aria-label="City">
+                            <input type="text" id="country-input" class="selector-field" placeholder="Country code (e.g., US)" aria-label="Country code">
+                        </div>
+                        <button class="selector-btn" id="fetch-weather">Update Weather</button>
+                    </div>
+                    
+                    <div class="weather-main">
+                        <div class="temperature-display">
+                            <span class="temp-value">22</span>
+                            <span class="temp-unit">°C</span>
+                        </div>
+                        <div class="weather-condition">
+                            <div class="condition-icon">⛅</div>
+                            <div class="condition-text">Partly Cloudy</div>
+                        </div>
+                    </div>
+
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Feels like</span>
+                            <span class="detail-value" id="feels-like-value">25°C</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value" id="humidity-value">65%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Wind</span>
+                            <span class="detail-value" id="wind-value">12 km/h</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">UV Index</span>
+                            <span class="detail-value" id="uv-value">6 High</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="microclimate-grid">
+                    <h3 class="section-title">Hyperlocal Microclimates</h3>
+                    <div class="microclimate-cards">
+                        <div class="microclimate-card">
+                            <div class="micro-location">Downtown Manhattan</div>
+                            <div class="micro-temp">24°C</div>
+                            <div class="micro-variance">+2°C from average</div>
+                        </div>
+                        <div class="microclimate-card">
+                            <div class="micro-location">Central Park</div>
+                            <div class="micro-temp">21°C</div>
+                            <div class="micro-variance">-1°C from average</div>
+                        </div>
+                        <div class="microclimate-card">
+                            <div class="micro-location">Brooklyn Bridge</div>
+                            <div class="micro-temp">23°C</div>
+                            <div class="micro-variance">+1°C from average</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Chat Section -->
+        <section id="ai-chat" class="section">
+            <div class="ai-container">
+                <div class="ai-header">
+                    <h2 class="section-title">AI Weather Assistant</h2>
+                    <div class="ai-status">
+                        <div class="status-indicator active"></div>
+                        <span>Online & Learning</span>
+                    </div>
+                </div>
+                
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message ai-message">
+                            <div class="message-avatar">🤖</div>
+                            <div class="message-content">
+                                <p>Hello! I'm your AI weather assistant. I can help you with forecasts, climate patterns, and personalized recommendations. What would you like to know?</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <input type="text" id="chat-input" class="chat-input" placeholder="Ask me anything about weather...">
+                        <button class="chat-send-btn" id="send-chat">
+                            <span class="send-icon">➤</span>
+                        </button>
+                    </div>
+                    
+                    <div class="quick-questions">
+                        <button class="quick-btn" data-question="What's tomorrow's weather?">Tomorrow's forecast</button>
+                        <button class="quick-btn" data-question="Should I carry an umbrella?">Umbrella needed?</button>
+                        <button class="quick-btn" data-question="What's the air quality?">Air quality</button>
+                        <button class="quick-btn" data-question="Best time for outdoor activities?">Outdoor activities</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Globe Section -->
+        <section id="globe" class="section">
+            <div class="globe-container">
+                <h2 class="section-title">Global Weather Patterns</h2>
+                <div class="globe-viewer">
+                    <div class="globe-display">
+                        <div class="globe-sphere">🌍</div>
+                        <div class="weather-markers">
+                            <div class="marker marker-storm" style="top: 30%; left: 20%;">⛈️</div>
+                            <div class="marker marker-sun" style="top: 60%; left: 70%;">☀️</div>
+                            <div class="marker marker-rain" style="top: 45%; left: 45%;">🌧️</div>
+                        </div>
+                    </div>
+                    
+                    <div class="globe-controls">
+                        <button class="globe-btn" id="rotate-globe">Rotate Globe</button>
+                        <button class="globe-btn" id="zoom-in">Zoom In</button>
+                        <button class="globe-btn" id="zoom-out">Zoom Out</button>
+                    </div>
+                    
+                    <div class="globe-legend">
+                        <div class="legend-item">
+                            <span class="legend-icon">⛈️</span>
+                            <span>Storm Systems</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-icon">☀️</span>
+                            <span>Clear Skies</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-icon">🌧️</span>
+                            <span>Rain Zones</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Predictions Section -->
+        <section id="predictions" class="section">
+            <div class="predictions-container">
+                <h2 class="section-title">Weather Prediction Games</h2>
+                
+                <div class="prediction-challenge">
+                    <div class="challenge-header">
+                        <h3>Today's Challenge</h3>
+                        <div class="challenge-timer">⏱️ 6h 23m remaining</div>
+                    </div>
+                    
+                    <div class="challenge-question">
+                        <p>What will be the temperature in Central Park at 6 PM today?</p>
+                        <div class="prediction-input">
+                            <input type="number" id="temp-prediction" placeholder="Temperature" min="-50" max="50">
+                            <span class="input-unit">°C</span>
+                            <button class="submit-prediction" id="submit-prediction">Submit Prediction</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="leaderboard">
+                    <h3>Top Predictors</h3>
+                    <div class="leaderboard-list">
+                        <div class="leader-item">
+                            <div class="leader-rank">1</div>
+                            <div class="leader-info">
+                                <div class="leader-name">WeatherMaster</div>
+                                <div class="leader-prediction">Rain in NYC tomorrow at 3PM</div>
+                            </div>
+                            <div class="leader-score">1250 pts</div>
+                            <div class="leader-confidence">85%</div>
+                        </div>
+                        <div class="leader-item">
+                            <div class="leader-rank">2</div>
+                            <div class="leader-info">
+                                <div class="leader-name">StormChaser</div>
+                                <div class="leader-prediction">Clear skies in London by evening</div>
+                            </div>
+                            <div class="leader-score">1580 pts</div>
+                            <div class="leader-confidence">91%</div>
+                        </div>
+                        <div class="leader-item">
+                            <div class="leader-rank">3</div>
+                            <div class="leader-info">
+                                <div class="leader-name">ClimateGuru</div>
+                                <div class="leader-prediction">Temperature will hit 30°C in Tokyo</div>
+                            </div>
+                            <div class="leader-score">980 pts</div>
+                            <div class="leader-confidence">72%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="section">
+            <div class="community-container">
+                <h2 class="section-title">Community Weather Reports</h2>
+                
+                <div class="report-form">
+                    <h3>Share Your Weather Observation</h3>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="report-location" placeholder="Your location...">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="report-description" rows="3" placeholder="Describe current weather conditions..."></textarea>
+                    </div>
+                    <button class="btn btn--primary" id="submit-report">Share Report</button>
+                </div>
+                
+                <div class="reports-feed">
+                    <div class="report-item verified">
+                        <div class="report-header">
+                            <div class="report-user">
+                                <div class="user-avatar">👤</div>
+                                <div class="user-info">
+                                    <div class="user-name">LocalWeatherWatcher</div>
+                                    <div class="report-time">2 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="verification-badge">✓ Verified</div>
+                        </div>
+                        <div class="report-location">📍 Central Park, NYC</div>
+                        <div class="report-content">Heavy morning fog, visibility under 100m</div>
+                    </div>
+                    
+                    <div class="report-item verified">
+                        <div class="report-header">
+                            <div class="report-user">
+                                <div class="user-avatar">👤</div>
+                                <div class="user-info">
+                                    <div class="user-name">SkyObserver</div>
+                                    <div class="report-time">45 minutes ago</div>
+                                </div>
+                            </div>
+                            <div class="verification-badge">✓ Verified</div>
+                        </div>
+                        <div class="report-location">📍 Tower Bridge, London</div>
+                        <div class="report-content">Light drizzle starting, umbrellas recommended</div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-header">
+                            <div class="report-user">
+                                <div class="user-avatar">👤</div>
+                                <div class="user-info">
+                                    <div class="user-name">WeatherEnthusiast</div>
+                                    <div class="report-time">1 hour ago</div>
+                                </div>
+                            </div>
+                            <div class="verification-badge pending">⏳ Pending</div>
+                        </div>
+                        <div class="report-location">📍 Shibuya, Tokyo</div>
+                        <div class="report-content">Perfect blue skies, great day for outdoor activities</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Section -->
+        <section id="health" class="section">
+            <div class="health-container">
+                <h2 class="section-title">Personalized Health Recommendations</h2>
+                
+                <div class="health-alerts">
+                    <div class="health-alert high-priority">
+                        <div class="alert-icon">⚠️</div>
+                        <div class="alert-content">
+                            <div class="alert-title">High UV Alert</div>
+                            <div class="alert-description">Apply SPF 30+ sunscreen and wear protective clothing</div>
+                        </div>
+                        <div class="alert-severity high">High</div>
+                    </div>
+                    
+                    <div class="health-alert medium-priority">
+                        <div class="alert-icon">💧</div>
+                        <div class="alert-content">
+                            <div class="alert-title">High Humidity</div>
+                            <div class="alert-description">Stay hydrated and avoid strenuous outdoor activities</div>
+                        </div>
+                        <div class="alert-severity medium">Medium</div>
+                    </div>
+                    
+                    <div class="health-alert low-priority">
+                        <div class="alert-icon">😷</div>
+                        <div class="alert-content">
+                            <div class="alert-title">Air Quality Alert</div>
+                            <div class="alert-description">Consider wearing a mask if you have respiratory sensitivities</div>
+                        </div>
+                        <div class="alert-severity low">Low</div>
+                    </div>
+                </div>
+                
+                <div class="health-metrics">
+                    <div class="metric-card">
+                        <div class="metric-title">Air Quality Index</div>
+                        <div class="metric-value">85</div>
+                        <div class="metric-status good">Good</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">Pollen Count</div>
+                        <div class="metric-value">4/10</div>
+                        <div class="metric-status moderate">Moderate</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-title">UV Index</div>
+                        <div class="metric-value">6</div>
+                        <div class="metric-status high">High</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AR View Section -->
+        <section id="ar-view" class="section">
+            <div class="ar-container">
+                <h2 class="section-title">Augmented Reality Weather</h2>
+                
+                <div class="ar-viewer">
+                    <div class="ar-camera">
+                        <div class="camera-placeholder">
+                            📱 Camera View
+                            <p>AR weather overlay would appear here</p>
+                        </div>
+                        <div class="ar-overlays">
+                            <div class="ar-data-point" style="top: 20%; left: 30%;">
+                                <div class="ar-label">Temperature</div>
+                                <div class="ar-value">22°C</div>
+                            </div>
+                            <div class="ar-data-point" style="top: 60%; left: 70%;">
+                                <div class="ar-label">Wind Speed</div>
+                                <div class="ar-value">12 km/h</div>
+                            </div>
+                            <div class="ar-data-point" style="top: 40%; left: 50%;">
+                                <div class="ar-label">Humidity</div>
+                                <div class="ar-value">65%</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ar-controls">
+                        <button class="ar-btn" id="toggle-ar">Enable AR</button>
+                        <button class="ar-btn" id="capture-ar">Capture</button>
+                        <button class="ar-btn" id="share-ar">Share View</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voice Control Section -->
+        <section id="voice" class="section">
+            <div class="voice-container">
+                <h2 class="section-title">Voice Control Center</h2>
+                
+                <div class="voice-interface">
+                    <div class="voice-visualizer">
+                        <div class="voice-circle">
+                            <div class="voice-icon">🎤</div>
+                        </div>
+                        <div class="voice-waves">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-status">
+                        <div class="status-text" id="voice-status">Say "Hey Weather" to start</div>
+                    </div>
+                    
+                    <div class="voice-commands">
+                        <h3>Voice Commands</h3>
+                        <div class="command-list">
+                            <div class="command-item">"What's the weather?"</div>
+                            <div class="command-item">"Show me tomorrow's forecast"</div>
+                            <div class="command-item">"What's the air quality?"</div>
+                            <div class="command-item">"Should I carry an umbrella?"</div>
+                            <div class="command-item">"Show me the 3D globe"</div>
+                            <div class="command-item">"Open community reports"</div>
+                        </div>
+                    </div>
+                    
+                    <button class="voice-toggle" id="voice-toggle">Start Listening</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
